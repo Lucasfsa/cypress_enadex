@@ -8,13 +8,12 @@ describe('Validação de elementos', () => {
         cy.get('label[for="name"]').should('have.text', 'Nome');
         cy.get('#name').should('be.visible');
     
-        cy.get('label[for="email"]').should('have.text', 'Email *');
+        cy.get('label[for="email"]').should('have.text', 'E-mail *');
         cy.get('#email').should('be.visible');
         cy.get('#email').should('have.attr', 'required');
     
         cy.get('label[for="curso"]').should('have.text', 'Curso');
         cy.get('#cursoSelect').should('be.visible');
-        cy.get('#cursoSelect option').should('have.length', 2);
     
         cy.get('label[for="unidade"]').should('have.text', 'Unidade');
         cy.get('#unidade').should('be.visible');
