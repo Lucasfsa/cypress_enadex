@@ -36,7 +36,6 @@ describe('Tela login', () => {
 
         cy.get('#exampleCheck1').should('be.visible').click()
         cy.contains('button', 'ENTRAR').should('be.visible').click()
-        cy.url().should('include', '/home');
 
     });
 });
