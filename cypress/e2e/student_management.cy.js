@@ -37,6 +37,33 @@ describe('Student managment', () => {
         });
         });
 
+      cy.wait(2000);
+      
+      cy.get(':nth-child(12) > :nth-child(9) > .button-edit').should('be.visible').click();
+      cy.get('#modal-content-users').should('be.visible');
+
+      cy.get('#modal-content-users .modal-body form').within(() => {
+        cy.get('.form-group label[for="input1"]').contains('Nome Completo');
+        cy.get('input[name="nameComplet"]').should('have.attr', 'placeholder', 'Insira o nome completo');
+  
+        cy.get('.form-group label[for="selectRole"]').contains('Selecione um curso');
+        cy.get('select[name="course"]').should('exist')
+         
+        cy.get('.form-group label[for="input1"]').contains('Matrícula');
+        cy.get('input[name="registration"]').should('have.attr', 'placeholder', 'Insira o seu número de matrícula');
+  
+        cy.get('.form-group label[for="input4"]').contains('E-mail');
+        cy.get('input[name="email"]').should('have.attr', 'placeholder', 'Insira seu e-mail');
+  
+        cy.get('.form-group label[for="selectRole"]').contains('Selecione sua unidade');
+        cy.get('select[name="unity"]').should('exist')
+         
+        cy.get('.form-group label[for="selectRole"]').contains('Selecione seu semestre');
+        cy.get('select[name="semester"]').should('exist')
+      });
+  
+      cy.get('#modal-content-users .modal-footer button.buttonRegister').should('have.text', 'Salvar');
+
     });
   });
 
